@@ -37,9 +37,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A06E9C0214E66A900099A51 /* NetworkProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */,
+			);
+			path = NetworkProtocol;
+			sourceTree = "<group>";
+		};
 		8A857C9B214D2CC60068FEF3 = {
 			isa = PBXGroup;
 			children = (
+				8A06E9C0214E66A900099A51 /* NetworkProtocol */,
 				8A857CB3214D2CC70068FEF3 /* Info.plist */,
 				8A857CA6214D2CC60068FEF3 /* Demo */,
 				8A857CA5214D2CC60068FEF3 /* Products */,
@@ -57,7 +66,6 @@
 		8A857CA6214D2CC60068FEF3 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */,
 				8A857CA7214D2CC60068FEF3 /* AppDelegate.swift */,
 				8A857CA9214D2CC60068FEF3 /* ViewController.swift */,
 				8A857CAB214D2CC60068FEF3 /* Main.storyboard */,

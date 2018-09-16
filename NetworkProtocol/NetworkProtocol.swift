@@ -8,15 +8,6 @@
 
 import UIKit
 
-protocol SessionTask {
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension URLSession : SessionTask { }
-
-protocol ErrorChecker {
-    func isRequestSuccessful(error: Error?) -> Bool
-}
 
 protocol NetworkHTTPCall {
     /// This is callback, called when network operation is completed. It will have 3 values, success, response and error.
@@ -91,19 +82,19 @@ extension NetworkHTTPCall {
         task.resume()
     }
     
+    /// Provide your custom headers in this method.
+    ///
+    /// - Returns: Will need header dictionary.
     func getSecurityHeaders() -> [String: String] {
         return [:]
     }
     
-    /// Check if error object is nil
+    /// Check if error object is nil, you can customize this error checking by implementing this method
     ///
     /// - Parameter error: error while performing task.
     /// - Returns: true of successful otherwise false.
     func isRequestSuccessful(error: Error?) -> Bool {
-        if error != nil {
-            return false
-        }
-        return true
+        return error == nil
     }
     
     /// Get the dictionary of the data and response. This will provide you the dictionary having important fields that you might be using for further processing.
@@ -120,5 +111,32 @@ extension NetworkHTTPCall {
         responseDict["headers"] = (response as? HTTPURLResponse)?.allHeaderFields
         responseDict["statusCode"] = (response as? HTTPURLResponse)?.statusCode
         return responseDict
+    }
+}
+
+protocol URLBuilder {
+    func buildURL(with destination: String, pathParam array: [String], andQuery queryDict: [String: String]) -> URL?
+}
+
+extension URLBuilder {
+    
+    func buildURL(with destination: String, pathParam array: [String], andQuery queryDict: [String: String]) -> URL? {
+        guard !destination.isEmpty else { return nil }
+        var urlString = destination
+        urlString += getPathParamString(from: array)
+        urlString += getQueryString(from: queryDict)
+        return URL(string: urlString)
+    }
+    
+    private func getQueryString(from dictionary: [String: String]) -> String {
+        guard !dictionary.isEmpty else { return "" }
+        var queryString = "?"
+        queryString += dictionary.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
+        return queryString
+    }
+    
+    private func getPathParamString(from array: [String]) -> String {
+        guard !array.isEmpty else { return "" }
+        return "/" + array.joined(separator: "/")
     }
 }

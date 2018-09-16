@@ -12,6 +12,7 @@
 		8A857CAD214D2CC60068FEF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CAB214D2CC60068FEF3 /* Main.storyboard */; };
 		8A857CAF214D2CC70068FEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CAE214D2CC70068FEF3 /* Assets.xcassets */; };
 		8A857CB2214D2CC70068FEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CB0214D2CC70068FEF3 /* LaunchScreen.storyboard */; };
+		8A857CBA214D2CFA0068FEF3 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8A857CAE214D2CC70068FEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A857CB1214D2CC70068FEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A857CB3214D2CC70068FEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +40,8 @@
 		8A857C9B214D2CC60068FEF3 = {
 			isa = PBXGroup;
 			children = (
-				8A857CA6214D2CC60068FEF3 /* iOS-Library */,
+				8A857CB3214D2CC70068FEF3 /* Info.plist */,
+				8A857CA6214D2CC60068FEF3 /* Demo */,
 				8A857CA5214D2CC60068FEF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,17 +54,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A857CA6214D2CC60068FEF3 /* iOS-Library */ = {
+		8A857CA6214D2CC60068FEF3 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */,
 				8A857CA7214D2CC60068FEF3 /* AppDelegate.swift */,
 				8A857CA9214D2CC60068FEF3 /* ViewController.swift */,
 				8A857CAB214D2CC60068FEF3 /* Main.storyboard */,
 				8A857CAE214D2CC70068FEF3 /* Assets.xcassets */,
 				8A857CB0214D2CC70068FEF3 /* LaunchScreen.storyboard */,
-				8A857CB3214D2CC70068FEF3 /* Info.plist */,
 			);
-			path = "iOS-Library";
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A857CBA214D2CFA0068FEF3 /* NetworkProtocol.swift in Sources */,
 				8A857CAA214D2CC60068FEF3 /* ViewController.swift in Sources */,
 				8A857CA8214D2CC60068FEF3 /* AppDelegate.swift in Sources */,
 			);
@@ -283,7 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "iOS-Library/Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "iOS-Library/Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

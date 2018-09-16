@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(ViewController.refresh))
+        navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    @objc func refresh() {
+//        let maanger = NetworkManager()
+//        maanger.call()
     }
 
 

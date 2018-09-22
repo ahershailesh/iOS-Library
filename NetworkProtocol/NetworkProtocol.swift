@@ -17,7 +17,7 @@ protocol NetworkHTTPCall {
     /// Look for key `headers` if you are looking for headers of the request.
     /// Look for key `mimeType` if you want for mimeType of the data received.
     /// - Parameter error: an error object returned if we get problem while processing request.
-    typealias NetworkCompletion = (_ success: Bool,_ response: [String: Any?], _ error: Error?) -> Void
+    typealias NetworkCompletion = (_ success: Bool,_ response: Response?, _ error: Error?) -> Void
     
     func getAPIResponse(for url: URL, callBack: NetworkCompletion?)
     
@@ -31,6 +31,13 @@ protocol NetworkHTTPCall {
 
 extension NetworkHTTPCall {
     
+    /// This will call API with `GET` method. You will callBack when API hit successfully 3 values, success, response and error.
+    /// - Parameter success: a Boolean. It will tell you if api call is successful.
+    /// - Parameter response: a dictionary, will be containing values for getting from the api response.
+    /// Look for key `data` if you are expecting a data to be loaded.
+    /// Look for key `headers` if you are looking for headers of the request.
+    /// Look for key `mimeType` if you want for mimeType of the data received.
+    /// - Parameter error: an error object returned if we get problem while processing request.
     func getAPIResponse(for url: URL, callBack: NetworkCompletion?) {
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
@@ -41,8 +48,8 @@ extension NetworkHTTPCall {
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             let success = self.isRequestSuccessful(error: error)
-            let responseDict = self.getDictionary(for: data, response: response)
-            callBack?(success, responseDict, error)
+            let response = self.getResponse(for: data, response: response)
+            callBack?(success, response, error)
         }
         task.resume()
     }
@@ -60,8 +67,8 @@ extension NetworkHTTPCall {
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             let success = self.isRequestSuccessful(error: error)
-            let responseDict = self.getDictionary(for: data, response: response)
-            callBack?(success, responseDict, error)
+            let response = self.getResponse(for: data, response: response)
+            callBack?(success, response, error)
         }
         task.resume()
     }
@@ -76,8 +83,8 @@ extension NetworkHTTPCall {
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             let success = self.isRequestSuccessful(error: error)
-            let responseDict = self.getDictionary(for: data, response: response)
-            callBack?(success, responseDict, error)
+            let response = self.getResponse(for: data, response: response)
+            callBack?(success, response, error)
         }
         task.resume()
     }
@@ -97,18 +104,30 @@ extension NetworkHTTPCall {
         return error == nil
     }
     
+    private func getResponse(for data: Data?, response: URLResponse?) -> Response? {
+        let dict = getDictionary(response: response)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.headerFormat)
+        do {
+            var response : Response? = try decoder.decode(dict: dict)
+            response?.data = data
+            return response
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     /// Get the dictionary of the data and response. This will provide you the dictionary having important fields that you might be using for further processing.
     ///
     /// - Parameters:
     ///   - data: recieved data from the API call
     ///   - response: received response from API ( mainly for the headers and status code )
     /// - Returns:  a mapped dictionary having important fields
-    private func getDictionary(for data: Data?, response: URLResponse?) -> [String: Any?] {
-        var responseDict : [String: Any?] = [:]
-        responseDict["data"] = data
+    private func getDictionary(response: URLResponse?) -> [String: Any] {
+        var responseDict = ((response as? HTTPURLResponse)?.allHeaderFields as? [String : Any]) ?? [:]
         responseDict["mimeType"] = response?.mimeType
-        responseDict["url"] = response?.url
-        responseDict["headers"] = (response as? HTTPURLResponse)?.allHeaderFields
+        responseDict["url"] = response?.url?.absoluteString
         responseDict["statusCode"] = (response as? HTTPURLResponse)?.statusCode
         return responseDict
     }
@@ -139,4 +158,44 @@ extension URLBuilder {
         guard !array.isEmpty else { return "" }
         return "/" + array.joined(separator: "/")
     }
+}
+
+struct Response : Decodable {
+    var expires: Date
+    var server: String
+    var age: String
+    var length: String
+    var mimeType: String
+    var url: URL
+    var lastModified: Date
+    var date: Date
+    var contentType: String
+    var statusCode: Int
+    var data: Data?
+    
+    enum CodingKeys: String, CodingKey {
+        case expires = "Expires"
+        case server = "Server"
+        case age = "Age"
+        case length = "Content-Length"
+        case lastModified = "Last-Modified"
+        case date = "Date"
+        case contentType = "Content-Type"
+
+        case mimeType
+        case url
+        case statusCode
+        case data
+    }
+}
+
+extension DateFormatter {
+    static let headerFormat : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
 }

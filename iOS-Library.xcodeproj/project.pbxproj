@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A06E9C3214E695D00099A51 /* Cacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9C2214E695D00099A51 /* Cacher.swift */; };
+		8A06E9C6214E722500099A51 /* Cacher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9C4214E722500099A51 /* Cacher.xcdatamodeld */; };
+		8A06E9D3214EBAAD00099A51 /* Text+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9CF214EBAAD00099A51 /* Text+CoreDataClass.swift */; };
+		8A06E9D4214EBAAD00099A51 /* Text+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9D0214EBAAD00099A51 /* Text+CoreDataProperties.swift */; };
+		8A06E9D5214EBAAD00099A51 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9D1214EBAAD00099A51 /* Image+CoreDataClass.swift */; };
+		8A06E9D6214EBAAD00099A51 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06E9D2214EBAAD00099A51 /* Image+CoreDataProperties.swift */; };
 		8A857CA8214D2CC60068FEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A857CA7214D2CC60068FEF3 /* AppDelegate.swift */; };
 		8A857CAA214D2CC60068FEF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A857CA9214D2CC60068FEF3 /* ViewController.swift */; };
 		8A857CAD214D2CC60068FEF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CAB214D2CC60068FEF3 /* Main.storyboard */; };
 		8A857CAF214D2CC70068FEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CAE214D2CC70068FEF3 /* Assets.xcassets */; };
 		8A857CB2214D2CC70068FEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A857CB0214D2CC70068FEF3 /* LaunchScreen.storyboard */; };
 		8A857CBA214D2CFA0068FEF3 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */; };
+		8A93A01E21563F4600D23D6C /* JSONDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A93A01D21563F4600D23D6C /* JSONDecoderExtension.swift */; };
+		8A93A02021568BD200D23D6C /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A93A01F21568BD200D23D6C /* DictionaryExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A06E9C2214E695D00099A51 /* Cacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacher.swift; sourceTree = "<group>"; };
+		8A06E9C5214E722500099A51 /* Cacher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cacher.xcdatamodel; sourceTree = "<group>"; };
+		8A06E9CF214EBAAD00099A51 /* Text+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8A06E9D0214EBAAD00099A51 /* Text+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8A06E9D1214EBAAD00099A51 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8A06E9D2214EBAAD00099A51 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8A857CA4214D2CC60068FEF3 /* iOS-Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A857CA7214D2CC60068FEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A857CA9214D2CC60068FEF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +38,8 @@
 		8A857CB1214D2CC70068FEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A857CB3214D2CC70068FEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A857CB9214D2CFA0068FEF3 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		8A93A01D21563F4600D23D6C /* JSONDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtension.swift; sourceTree = "<group>"; };
+		8A93A01F21568BD200D23D6C /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +61,24 @@
 			path = NetworkProtocol;
 			sourceTree = "<group>";
 		};
+		8A06E9C1214E68A600099A51 /* Image Cacher */ = {
+			isa = PBXGroup;
+			children = (
+				8A06E9CF214EBAAD00099A51 /* Text+CoreDataClass.swift */,
+				8A06E9D0214EBAAD00099A51 /* Text+CoreDataProperties.swift */,
+				8A06E9D1214EBAAD00099A51 /* Image+CoreDataClass.swift */,
+				8A06E9D2214EBAAD00099A51 /* Image+CoreDataProperties.swift */,
+				8A06E9C4214E722500099A51 /* Cacher.xcdatamodeld */,
+				8A06E9C2214E695D00099A51 /* Cacher.swift */,
+			);
+			path = "Image Cacher";
+			sourceTree = "<group>";
+		};
 		8A857C9B214D2CC60068FEF3 = {
 			isa = PBXGroup;
 			children = (
+				8A93A02121568C4A00D23D6C /* Extensions */,
+				8A06E9C1214E68A600099A51 /* Image Cacher */,
 				8A06E9C0214E66A900099A51 /* NetworkProtocol */,
 				8A857CB3214D2CC70068FEF3 /* Info.plist */,
 				8A857CA6214D2CC60068FEF3 /* Demo */,
@@ -73,6 +104,15 @@
 				8A857CB0214D2CC70068FEF3 /* LaunchScreen.storyboard */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		8A93A02121568C4A00D23D6C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A93A01F21568BD200D23D6C /* DictionaryExtension.swift */,
+				8A93A01D21563F4600D23D6C /* JSONDecoderExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +186,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A06E9D6214EBAAD00099A51 /* Image+CoreDataProperties.swift in Sources */,
+				8A93A01E21563F4600D23D6C /* JSONDecoderExtension.swift in Sources */,
+				8A06E9D3214EBAAD00099A51 /* Text+CoreDataClass.swift in Sources */,
 				8A857CBA214D2CFA0068FEF3 /* NetworkProtocol.swift in Sources */,
+				8A06E9D4214EBAAD00099A51 /* Text+CoreDataProperties.swift in Sources */,
+				8A93A02021568BD200D23D6C /* DictionaryExtension.swift in Sources */,
+				8A06E9D5214EBAAD00099A51 /* Image+CoreDataClass.swift in Sources */,
+				8A06E9C3214E695D00099A51 /* Cacher.swift in Sources */,
 				8A857CAA214D2CC60068FEF3 /* ViewController.swift in Sources */,
+				8A06E9C6214E722500099A51 /* Cacher.xcdatamodeld in Sources */,
 				8A857CA8214D2CC60068FEF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +394,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A06E9C4214E722500099A51 /* Cacher.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A06E9C5214E722500099A51 /* Cacher.xcdatamodel */,
+			);
+			currentVersion = 8A06E9C5214E722500099A51 /* Cacher.xcdatamodel */;
+			path = Cacher.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A857C9C214D2CC60068FEF3 /* Project object */;
 }

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, URLBuilder {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,10 +20,12 @@ class ViewController: UIViewController {
     }
     
     @objc func refresh() {
-//        let maanger = NetworkManager()
-//        maanger.call()
+        let cacher = ImageCacher()
+        if let url = URL(string: textField.text ?? "") {
+            cacher.get(from: url) { (image) in
+                print(image)
+            }
+        }
     }
-
-
 }
 

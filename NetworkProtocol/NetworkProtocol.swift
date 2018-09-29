@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol NetworkHTTPCall {
+public protocol NetworkHTTPCall {
     /// This is callback, called when network operation is completed. It will have 3 values, success, response and error.
     /// - Parameter success: a Boolean. It will tell you if api call is successful.
     /// - Parameter response: a dictionary, will be containing values for getting from the api response.
@@ -29,7 +29,7 @@ protocol NetworkHTTPCall {
     func isRequestSuccessful(error: Error?) -> Bool
 }
 
-extension NetworkHTTPCall {
+public extension NetworkHTTPCall {
     
     /// This will call API with `GET` method. You will callBack when API hit successfully 3 values, success, response and error.
     /// - Parameter success: a Boolean. It will tell you if api call is successful.
@@ -133,11 +133,11 @@ extension NetworkHTTPCall {
     }
 }
 
-protocol URLBuilder {
+public protocol URLBuilder {
     func buildURL(with destination: String, pathParam array: [String], andQuery queryDict: [String: String]) -> URL?
 }
 
-extension URLBuilder {
+public extension URLBuilder {
     
     func buildURL(with destination: String, pathParam array: [String], andQuery queryDict: [String: String]) -> URL? {
         guard !destination.isEmpty else { return nil }
@@ -160,7 +160,7 @@ extension URLBuilder {
     }
 }
 
-struct Response : Decodable {
+public struct Response : Decodable {
     var expires: Date
     var server: String
     var age: String
@@ -189,7 +189,7 @@ struct Response : Decodable {
     }
 }
 
-extension DateFormatter {
+public extension DateFormatter {
     static let headerFormat : DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"

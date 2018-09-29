@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     func toData() throws -> Data {
         return try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }

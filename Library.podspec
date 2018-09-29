@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ahershailesh/iOS-Library.git", :tag => "v#{s.version}"  }
   s.ios.deployment_target  = '10.0'
   s.source_files  = "**/*.swift"
+  s.resources = '**/*.xcdatamodeld'
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension JSONDecoder {
+public extension JSONDecoder {
     func decode<T : Decodable>(dict: [String: Any]) throws -> T? {
         let data = try dict.toData()
         return try decode(T.self, from: data)

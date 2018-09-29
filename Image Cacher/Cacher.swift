@@ -22,10 +22,10 @@ fileprivate final class CacherCoreData {
 }
 
 
-class ImageCacher : NetworkHTTPCall {
+public class ImageCacher : NetworkHTTPCall {
     
-    typealias Completion = (_ image: Image?) -> Void
-    typealias APISuccess = (_ success: Bool) -> Void
+    public typealias Completion = (_ image: Image?) -> Void
+    public typealias APISuccess = (_ success: Bool) -> Void
     
     //MARK:- Public Methods
     /// it will retrieve data from url and store it in cache. cache is managed by coredata.
@@ -33,7 +33,7 @@ class ImageCacher : NetworkHTTPCall {
     /// - Parameters:
     ///   - url: link from where profile pic is to be fetched.
     ///   - callBack: call back on retrieval.
-    func get(from url: URL, callBack: Completion?) {
+    public func get(from url: URL, callBack: Completion?) {
         
         // First search URL in cache
         getImageDataFromCache(for: url) { [weak self] image in

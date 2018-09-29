@@ -172,8 +172,8 @@ public struct Response : Decodable {
     public var lastModified: Date?
     public var date: Date?
     public var contentType: String?
-    public var statusCode: Int
-    public var data: Data
+    public var statusCode: Int?
+    public var data: Data?
     
     enum CodingKeys: String, CodingKey {
         case expires = "Expires"

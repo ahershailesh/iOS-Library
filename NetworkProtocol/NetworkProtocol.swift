@@ -161,20 +161,20 @@ public extension URLBuilder {
 }
 
 public struct Response : Decodable {
-    public var expires: Date
-    public var server: String
-    public var age: String
-    public var length: String
-    public var mimeType: String
-    public var url: URL
-    public var lastModified: Date
-    public var date: Date
-    public var contentType: String
-    public var statusCode: Int
+    public var expires: Date?
+    public var server: String?
+    public var age: String?
+    public var length: String?
+    public var mimeType: String?
+    public var url: URL?
+    public var lastModified: Date?
+    public var date: Date?
+    public var contentType: String?
+    public var statusCode: Int?
     public var data: Data?
     
     enum CodingKeys: String, CodingKey {
-        case expires = "Expires"
+        case c = "Expires"
         case server = "Server"
         case age = "Age"
         case length = "Content-Length"
